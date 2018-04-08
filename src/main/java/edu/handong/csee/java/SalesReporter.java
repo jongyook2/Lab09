@@ -74,8 +74,9 @@ public class SalesReporter {
 					System.out.println("Name: " + team[i].getmName());
 					System.out.println("Sales: $" + team[i].getSales());
 					difference = team[i].getSales() - averageSales;
-					if(difference > 0) System.out.println("$"+difference+"is above the average.");
-					else System.out.println("$"+Math.abs(difference)+"is below the average.");
+					if(difference > 0) System.out.println("$"+difference+" is above the average.");
+					else if(difference < 0) System.out.println("$"+Math.abs(difference)+" is below the average.");
+					else System.out.println("sales is the average(same).");
 				}
 			}
 		}
