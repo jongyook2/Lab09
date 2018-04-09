@@ -6,7 +6,7 @@ package edu.handong.csee.java; //package name
  * 
  */
 public class Salesman {
-	
+
 	private String mName; //member's name
 	private double sales; //member's sales
 	/**
@@ -18,7 +18,7 @@ public class Salesman {
 	}
 	/**
 	 * This method is mName setter of Salesman Class <br>
-	 * @parameter String mName
+	 * @param mName
 	 */
 	public void setmName(String mName) {
 		this.mName = mName; //store mName in this.mName
@@ -32,12 +32,9 @@ public class Salesman {
 	}
 	/**
 	 * This method is Sales setter of Salesman Class <br>
-	 * @parameter double sales
+	 * @param sales
 	 */
 	public void setSales(double sales) {
 		this.sales = sales; //store sales in this.sales
 	}
-	
-	
-
 }
