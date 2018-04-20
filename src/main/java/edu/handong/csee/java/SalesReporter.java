@@ -1,10 +1,12 @@
 package edu.handong.csee.java; //package name
 import java.util.ArrayList; //import ArrayList class
 import java.util.Scanner; //import standard input from keyboard
+
 /**
  * This public class defines SalesReporter object.<br>
- * It has constructor, main method, getData, calculateAverage, calculateHighest, and printOutResults method <br>
- * Summary: instantiate SalesReporter class to Reporting and receive number, salesman name, and sales as input <br>
+ * It has main method, getData, calculateAverage, calculateHighest, and printOutResults method <br>
+ * Summary: instantiate SalesReporter class to Reporting and receive salesman name, and sales as input <br>
+ * ask whether add other person's info<br>
  * calculate average and highest, print salesman's information<br>
  * 
  *  @author YJW <br>
@@ -14,18 +16,6 @@ public class SalesReporter {
 	private double averageSales; //declare instance variable(average sales record)
 	ArrayList<Salesman> team = new ArrayList(); //instantiate team(ArrayList<Saleman>
 	
-	/**
-	 * This Constructor is used to initialize instance variable number of salesman <br>
-	 * was received number of sales associates by user(keyboard)
-	 */
-	/*public SalesReporter() {
-		System.out.println("Enter number of sales associates: "); //output(Enter number of sales associates: ) is shown in your monitor
-		Scanner keyboard = new Scanner(System.in);  // instantiate Class Scanner to keyboard(input)
-
-		numberOfSalesman = keyboard.nextInt(); //numberOfSalesman is input(int type) from keyboard
-
-	}
-	*/
 	/**
 	 * This public static void method is main <br>
 	 * instantiates SalesReporter Class to Reporting <br>
@@ -41,12 +31,12 @@ public class SalesReporter {
 	}
 	/**
 	 * This public void method is getData that receives name and sales by user(keyboard)<br>
-	 * initializes array team[numberOfSalesman] and stores name and sales in team(array)
+	 * initializes Salesman to mySalesman and stores name and sales in mySalesman then, mySalesmna add to team(arrayList)
 	 */
 	public void getData() {
-		 //array initialization 
-		int i=0;
-		while(true){ //loop 0 to numberOfSalesman-1
+		 
+		int i=0; //local variable(use index)
+		while(true){ //loop until choose equal to "No"
 			Scanner keyboard= new Scanner(System.in); // instantiate Class Scanner to keyboard(input)
 			System.out.println("Enter data for associate number "+(i+1)); //output(Enter data for associate number 1~numberofSalesman ) is shown in your monitor
 			i++;
@@ -54,18 +44,18 @@ public class SalesReporter {
 			String name = keyboard.nextLine(); //name is input(string type) from keyboard
 			System.out.print("Enter assoiate's sales: $"); //output(Enter assoiate's sales: $ ) is shown in your monitor
 			double sales = keyboard.nextDouble(); //sales is input(double type) from keyboard
-			keyboard.nextLine();
+			keyboard.nextLine(); //enter 
 			Salesman mySalesman = new Salesman(); //instantiate Class Salesman to mySalesman
 			mySalesman.setmName(name); //store name 
 			mySalesman.setSales(sales); //store sales
 
 			team.add(mySalesman); //team array index i is initialized to mySalesman(has name and sales)
 			System.out.println(); //next line
-			System.out.print("Do you want to input others?(yes or no) ");
-			String choose = keyboard.nextLine();
+			System.out.print("Do you want to input others?(yes or no) "); //output(Do you want to input others?(yes or no) ) is shown in your monitor
+			String choose = keyboard.nextLine(); //choose is input(string type) from keyboard
 			
-			if(choose.equalsIgnoreCase("no")){
-				break;
+			if(choose.equalsIgnoreCase("no")){ //if choose equal to "no" 
+				break; //escape from while loop
 			}
 			
 		}
@@ -76,8 +66,8 @@ public class SalesReporter {
 	 */
 	public void calculateAverage() {
 		double sum =0; // declare sum and initialize to 0
-		for(int i=0; i<team.size(); i++) { //loop 0 to array length-1
-			double sales = team.get(i).getSales(); //declare sales and initialize to team[i].getSales()
+		for(int i=0; i<team.size(); i++) { //loop 0 to arrayList size-1
+			double sales = team.get(i).getSales(); //declare sales and initialize to team.get(i).getSales()
 			sum = sum + sales; //sum(now) is sum(before) + sales(array index i)
 		}
 		averageSales= sum/team.size(); // sum is divided by array length
@@ -88,9 +78,9 @@ public class SalesReporter {
 	 */
 	public void calculateHighest() {
 		//double highestSales=0;  // declare highestSales and initialize to 0
-		for(int i=0; i<team.size(); i++) { //loop 0 to array length-1
-			if(team.get(i).getSales() > highestSales) { //if team[i]'s sales is more than highestSales
-				highestSales = team.get(i).getSales(); //highestSales is team[i]'s sales
+		for(int i=0; i<team.size(); i++) { //loop 0 to arraylist size-1
+			if(team.get(i).getSales() > highestSales) { //if team.get(i)'s sales is more than highestSales
+				highestSales = team.get(i).getSales(); //highestSales is team.get(i)'s sales
 			}
 		}
 	}	
@@ -103,22 +93,22 @@ public class SalesReporter {
 		System.out.println("The highest sales figure is $" + highestSales); //output(Enter assoiate's sales: $highestSales) is shown in your monitor
 		double difference; //declare variable(difference) double type
 		int i; //declare variable i(for loop)
-		for(i=0; i < team.size(); i++) { //loop 0 to array length-1
-			if(team.get(i).getSales() == highestSales) { //if team[i]'s Sales is equal to highestSales
+		for(i=0; i < team.size(); i++) { //loop 0 to arraylist size-1
+			if(team.get(i).getSales() == highestSales) { //if team.get(i)'s Sales is equal to highestSales
 				System.out.println("\nThe following had the highest sales:"); //output(The following had the highest sales:) is shown in your monitor
-				System.out.println("Name: " + team.get(i).getmName()); //output(Name: team[i]'s name) is shown in your monitor
-				System.out.println("Sales: $" + team.get(i).getSales()); //output(Sales: team[i]'s Sales) is shown in your monitor
-				difference = team.get(i).getSales() - averageSales; //initialize to (team[i]'s sales-average) 
+				System.out.println("Name: " + team.get(i).getmName()); //output(Name: team.get(i)'s name) is shown in your monitor
+				System.out.println("Sales: $" + team.get(i).getSales()); //output(Sales: team.get(i)'s Sales) is shown in your monitor
+				difference = team.get(i).getSales() - averageSales; //initialize to (team.get(i)'s sales-average) 
 				System.out.println("$"+difference+" is above the average."); //output($difference is above the average) is shown in your monitor
 			}
 		}
 		if(team.size()>1) {
 		System.out.println("\nThe rest performed as follows:"); //output(The rest performed as follows:) is shown in your monitor
 		for(i=0; i < team.size(); i++) { //loop 0 to array length-1
-			if(team.get(i).getSales() != highestSales) { //if team[i]'s Sales is not equal to highestSales
-				System.out.println("Name: " + team.get(i).getmName()); //output(Name: team[i]'s name) is shown in your monitor
-				System.out.println("Sales: $" +team.get(i).getSales()); //output(Sales: team[i]'s Sales) is shown in your monitor
-				difference = team.get(i).getSales() - averageSales; //initialize to (team[i]'s sales-average) 
+			if(team.get(i).getSales() != highestSales) { //if team.get(i)'s Sales is not equal to highestSales
+				System.out.println("Name: " + team.get(i).getmName()); //output(Name: team.get(i)'s name) is shown in your monitor
+				System.out.println("Sales: $" +team.get(i).getSales()); //output(Sales: team.get(i)'s Sales) is shown in your monitor
+				difference = team.get(i).getSales() - averageSales; //initialize to (team.get(i)'s sales-average) 
 				if(difference > 0) //if difference is larger than 0
 					System.out.println("$"+difference+" is above the average."); //output($difference is above the average) is shown in your monitor
 				else if(difference < 0) //if difference is less than 0
