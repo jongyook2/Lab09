@@ -1,5 +1,5 @@
 package edu.handong.csee.java; //package name
-import java.util.ArrayList;
+import java.util.ArrayList; //import ArrayList class
 import java.util.Scanner; //import standard input from keyboard
 /**
  * This public class defines SalesReporter object.<br>
@@ -12,9 +12,8 @@ import java.util.Scanner; //import standard input from keyboard
 public class SalesReporter {
 	private double highestSales; //declare instance variable(highest sales record)
 	private double averageSales; //declare instance variable(average sales record)
-	ArrayList<Salesman> team = new ArrayList();
-	//private static ArrayList team; //declare array(team) by Salesman Class
-	//private int numberOfSalesman; //declare instance variable(how many?)
+	ArrayList<Salesman> team = new ArrayList(); //instantiate team(ArrayList<Saleman>
+	
 	/**
 	 * This Constructor is used to initialize instance variable number of salesman <br>
 	 * was received number of sales associates by user(keyboard)
