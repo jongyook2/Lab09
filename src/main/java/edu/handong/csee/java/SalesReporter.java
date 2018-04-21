@@ -102,7 +102,7 @@ public class SalesReporter {
 				System.out.println("$"+difference+" is above the average."); //output($difference is above the average) is shown in your monitor
 			}
 		}
-		if(team.size()>1) {
+		if(team.size()>1) {//if there are number of Salesman
 			System.out.println("\nThe rest performed as follows:"); //output(The rest performed as follows:) is shown in your monitor
 			for(i=0; i < team.size(); i++) { //loop 0 to arraylist size-1
 				if(team.get(i).getSales() != highestSales) { //if team.get(i)'s Sales is not equal to highestSales
